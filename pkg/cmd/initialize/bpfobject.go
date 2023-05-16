@@ -96,6 +96,8 @@ func BpfObject(config *tracee.Config, kConfig *helpers.KernelConfig, OSInfo *hel
 		}
 
 		goto out
+	} else {
+		logger.Debug("BTF: error unpacking BTF file from embedded btfhub", "error", err)
 	}
 
 	// (5) no BPF file given & no BTF available & no embedded BTF: non CO-RE BPF
